@@ -1,0 +1,88 @@
+\documentclass[paper=a4paper,hanging_punctuation,jafontscale=0.92469,titlepage,fontsize=12pt]{jlreq}
+%hanging_punctuation:ぶら下げ組
+%jafontscale=0.92469 他文書クラスと同等の欧文/日文フォントサイズ比
+%余白の指定 %
+\usepackage[top=20truemm,bottom=20truemm,left=25truemm,right=25truemm]{geometry} %上下左右の余白を指定．この場合の単位はmm
+\usepackage{setspace} % setspaceパッケージのインクルード
+\setstretch{2.0} % ページ全体の行間を設定 ※2.0は広め
+%%%%%%%%%%%%%%%
+%欧文フォント
+\usepackage{unicode-math}
+\setmainfont[Ligatures=TeX]{TeXGyreTermes} %本文
+\setsansfont[Ligatures=TeX]{TeXGyreHeros} %見出し
+%\setmonofont{Inconsolatazi4} プログラム
+%\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+%\usepackage{bm}
+%和文フォント
+\usepackage[deluxe,haranoaji]{luatexja-preset}
+\usepackage{graphicx}
+\usepackage{subcaption} %横並びの図
+\usepackage{chngcntr} %章ごとにキャプション
+\counterwithin{figure}{section} %章ごとに図番号を振る
+\counterwithin{table}{section} %章ごとに表番号を振る
+%フォントは色々試して指定のものに合ったフォントを探してほしい．Microsoftフォントは基本ないので
+
+\begin{document}
+
+  \begin{titlepage} % 表紙
+    \vspace*{\fill} % 上部に空白を挿入
+      \begin{center} %中央揃え
+        \LARGE タイトル \par
+        \vspace{40mm} %\vspace{}で上下の空白長さを指定できる
+        \Large Me \par
+        \vspace{40mm}
+        今年 \par
+        \vspace{15mm}
+        卒業論文 \par
+        \vspace{10mm}
+        学生証番号と分野名 %あまり推奨されていないらしいが、全角空白は見た目と同様の空白を出力する．
+        \\ 提出日YYYY年MM月DD日
+      \end{center}
+      \vspace*{\fill} % 下部に空白を挿入
+  \end{titlepage}
+  \thispagestyle{empty} %このページではページ番号を振らない
+  \clearpage
+  \tableofcontents %目次を作成(だったっけ？)
+  \thispagestyle{empty} %このページではページ番号を振らない
+  \clearpage
+  \addtocounter{page}{-2} %省略するページ分だけ-nする．
+  \section{はじめに}
+    不要になった文は\%を入れると便利である．%途中で入れるとこの文は出力されない．
+      \clearpage
+  \section{研究背景}
+      \clearpage
+  \section{研究手法}
+      \clearpage
+  \section{結果}
+    %\subsection{}
+      \quad %空白
+      結果
+      \qquad %大きな空白
+      \clearpage%ページを更新
+  \section{考察}
+    %\subsection{}
+    \subsection{小見出し}
+
+      \clearpage %ページを更新
+  \section{まとめ}
+    % まとめを記入
+    \clearpage
+  \section{謝辞}
+    % 謝辞を記入
+    \clearpage
+  \section{引用文献}%
+    \noindent
+    \clearpage
+    \section*{図}
+    \thispagestyle{empty}
+    \noindent
+    % 図一覧を記入
+    \thispagestyle{empty}
+    \section*{表}
+    \noindent
+    % 表一覧を記入
+    \thispagestyle{empty}
+    \clearpage
+\end{document}
+
